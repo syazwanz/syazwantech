@@ -2,32 +2,35 @@
 <html lang="en">
 
 <head>
-    <title>SYAZWAN TECH</title>
+    <title>SYAZWANTECH</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Import the webpage's stylesheet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="container">
-        <img src="./logo.jpg" alt="" width="150px">
-        <h1>Object Detection AI</h1>
-        <p>Wait for the model to load before clicking the button to enable the webcam - at which point it will become
-            visible to use.</p>
+    <div id="outer-container">
+        <div id="container">
+            <img src="./logo.jpg" alt="" width="150px">
+            <h1>Object Detection AI</h1>
+            <p>Wait for the model to load before clicking the button to enable the webcam - at which point it will
+                become
+                visible to use.</p>
 
 
-        <section id="demos" class="invisible">
+            <section id="demos" class="invisible">
 
-            <p>Hold some objects up close to your webcam to get a real-time classification!</p>
-            <p>When ready click "Start AI" below and accept access to the webcam when the browser asks</p>
+                <p>Hold some objects up close to your webcam to get a real-time classification!</p>
+                <p>When ready click "Start AI" below and accept access to the webcam when the browser asks</p>
 
-            <div id="liveView" class="camView">
-                <button id="webcamButton">Start AI</button>
-                <video id="webcam" autoplay width="640" height="480"></video>
-            </div>
+                <div id="liveView" class="camView">
+                    <button id="webcamButton">Start AI</button>
+                    <video id="webcam" autoplay width="640" height="480"></video>
+                </div>
 
-        </section>
+            </section>
+        </div>
     </div>
     <!-- Import TensorFlow.js library -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
