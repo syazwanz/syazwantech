@@ -13,23 +13,13 @@
     <div id="outer-container">
         <div id="container">
             <img src="./logo.jpg" alt="" width="150px">
-            <h1>Object Detection AI</h1>
-            <p>Wait for the model to load before clicking the button to enable the webcam - at which point it will
-                become
-                visible to use.</p>
+            <div id="title">Object Detection AI</div>
 
+            <div id="liveView" class="camView">
+                <video id="webcam" autoplay></video>
+                <button id="webcamButton">Start AI</button>
+            </div>
 
-            <section id="demos" class="invisible">
-
-                <p>Hold some objects up close to your webcam to get a real-time classification!</p>
-                <p>When ready click "Start AI" below and accept access to the webcam when the browser asks</p>
-
-                <div id="liveView" class="camView">
-                    <button id="webcamButton">Start AI</button>
-                    <video id="webcam" autoplay width="640" height="480"></video>
-                </div>
-
-            </section>
         </div>
     </div>
     <!-- Import TensorFlow.js library -->

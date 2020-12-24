@@ -17,7 +17,8 @@ body {
 }
 
 #container {
-    width: 800px;
+    max-width: 1000px;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -25,29 +26,40 @@ body {
     align-items: center;
 
     padding: 20px;
+
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
-h1 {
+#title {
+    font-size: 30px;
+    font-weight: bold;
     font-style: italic;
     color: #FF6F00;
     padding: 10px;
 }
 
+#liveView {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 10px;
+    color: #FF6F00;
+    font-weight: bold;
+    background: white;
+    border: 1px solid #FF6F00;
+    border-radius: 5px;
+}
+
 video {
     display: block;
-}
-
-section {
-    opacity: 1;
-    transition: opacity 500ms ease-in-out;
-}
-
-.removed {
-    display: none;
-}
-
-.invisible {
-    opacity: 0.2;
+    padding: 5px 20px;
+    max-width: 600px;
+    max-height: 400px;
 }
 
 .camView {
