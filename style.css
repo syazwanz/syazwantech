@@ -27,6 +27,7 @@ body {
 .title-text {
     font-weight: bold;
     font-size: 20px;
+    margin: 10px;
 }
 
 #loading {
@@ -51,7 +52,7 @@ body {
 
 .webcam {
     width: 92%;
-    margin: 0px 0px 10px 0px;
+    /* margin: 0px 0px 0px 0px; */
     border-radius: 5px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -111,6 +112,12 @@ body {
 .stop-btn:active {
     background-color: #B63A2E;
     color: white;
+}
+
+.liveView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .camView {
