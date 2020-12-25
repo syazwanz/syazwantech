@@ -114,3 +114,13 @@ cocoSsd.load().then(function (loadedModel) {
     aiContainer.style.display = 'flex'
     console.log('Model loaded!')
 });
+
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // true for mobile device
+    console.log("mobile device");
+    alert('Not optimized for Mobile!')
+} else {
+    // false for not mobile device
+    console.log("not mobile device");
+}
