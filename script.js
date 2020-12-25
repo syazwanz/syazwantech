@@ -2,6 +2,8 @@ const liveView = document.getElementById('liveView');
 const video = document.getElementById('webcam');
 const enableWebcamButton = document.getElementById('start-btn');
 const stopButton = document.getElementById('stop-btn');
+const loading = document.getElementById('loading');
+const aiContainer = document.getElementById('ai-container');
 
 function getUserMediaSupported() {
     return !!(navigator.mediaDevices &&
@@ -30,8 +32,13 @@ function enableCam(event) {
 
     // activate webcam
     navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        video.style.display = 'block';
         video.srcObject = stream;
         video.addEventListener('loadeddata', predictWebcam);
+
+
+        enableWebcamButton.style.display = 'none';
+        stopButton.style.display = 'block';
     });
 }
 
@@ -44,6 +51,10 @@ function disableCam(event) {
     if (video.srcObject) {
         video.srcObject.getTracks().forEach(function (track) {
             track.stop();
+            enableWebcamButton.style.display = 'block';
+            stopButton.style.display = 'none';
+            video.style.display = 'none';
+
             console.log('STOP!')
         });
     }
@@ -60,26 +71,27 @@ function predictWebcam() {
         }
         children.splice(0);
 
-        // Now lets loop through predictions and draw them to the live view if
-        // they have a high confidence score.
+
         for (let n = 0; n < predictions.length; n++) {
-            // If we are over 66% sure we are sure we classified it right, draw it!
-            if (predictions[n].score > 0.5) {
+            if (predictions[n].score > 0.1) {
+
                 const p = document.createElement('p');
+
                 p.innerText = predictions[n].class + ' '
-                    + (predictions[n].score).toFixed(2)
-                // + Math.round(parseFloat(predictions[n].score) * 100)
-                // + '% confidence.';
+                    + (predictions[n].score).toFixed(2);
+
                 p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
-                    + (predictions[n].bbox[1] - 10) + 'px; width: '
-                    + (predictions[n].bbox[2] - 10) + 'px; top: 0; left: 0;';
+                    + (predictions[n].bbox[1] - 0) + 'px; width: '
+                    + (predictions[n].bbox[2] - 40) + 'px; top: 0; left: 0;';
 
                 const highlighter = document.createElement('div');
+
                 highlighter.setAttribute('class', 'highlighter');
+
                 highlighter.style = 'left: ' + predictions[n].bbox[0] + 'px; top: '
-                    + predictions[n].bbox[1] + 'px; width: '
-                    + predictions[n].bbox[2] + 'px; height: '
-                    + predictions[n].bbox[3] + 'px;';
+                    + (predictions[n].bbox[1] - 0) + 'px; width: '
+                    + (predictions[n].bbox[2] - 0) + 'px; height: '
+                    + (predictions[n].bbox[3] - 0) + 'px;';
 
                 liveView.appendChild(highlighter);
                 liveView.appendChild(p);
@@ -98,5 +110,7 @@ var model = undefined;
 //load model
 cocoSsd.load().then(function (loadedModel) {
     model = loadedModel;
+    loading.remove();
+    aiContainer.style.display = 'flex'
     console.log('Model loaded!')
 });
