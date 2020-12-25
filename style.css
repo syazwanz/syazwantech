@@ -43,6 +43,14 @@ body {
     width: 300px;
 }
 
+#loading2 {
+    display: none;
+}
+
+#loading2>img {
+    width: 100px;
+}
+
 #ai-container {
     display: none;
     flex-direction: column;
@@ -54,8 +62,8 @@ body {
     width: 92%;
     /* margin: 0px 0px 0px 0px; */
     border-radius: 5px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid rgba(0, 0, 0, 0.1); */
     display: none;
 
     /* -webkit-transform: scaleX(-1); */
@@ -91,7 +99,7 @@ body {
     display: none;
     text-align: center;
     padding: 8px 15px;
-    margin: 10px 0px;
+    margin: 10px 0px -10px 0px;
     color: white;
     background-color: #B63A2E;
     box-shadow: none;

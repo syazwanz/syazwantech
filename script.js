@@ -3,6 +3,7 @@ const video = document.getElementById('webcam');
 const enableWebcamButton = document.getElementById('start-btn');
 const stopButton = document.getElementById('stop-btn');
 const loading = document.getElementById('loading');
+const loading2 = document.getElementById('loading2');
 const aiContainer = document.getElementById('ai-container');
 
 function getUserMediaSupported() {
@@ -25,6 +26,8 @@ function enableCam(event) {
         return;
     }
 
+    loading2.style.display = 'block';
+    enableWebcamButton.style.display = 'none';
     // getUsermedia parameters to force video but not audio.
     const constraints = {
         // video: true,
@@ -40,7 +43,7 @@ function enableCam(event) {
         video.addEventListener('loadeddata', predictWebcam);
 
 
-        enableWebcamButton.style.display = 'none';
+        loading2.style.display = 'none';
         stopButton.style.display = 'block';
     });
 }
