@@ -27,7 +27,10 @@ function enableCam(event) {
 
     // getUsermedia parameters to force video but not audio.
     const constraints = {
-        video: true
+        // video: true,
+        video: {
+            facingMode: "environment"
+        }
     };
 
     // activate webcam
@@ -119,7 +122,7 @@ cocoSsd.load().then(function (loadedModel) {
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // true for mobile device
     console.log("mobile device");
-    alert('Not optimized for Mobile!')
+    alert('Not optimized for mobile viewing!')
 } else {
     // false for not mobile device
     console.log("not mobile device");
