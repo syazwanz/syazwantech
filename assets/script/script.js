@@ -125,7 +125,7 @@ cocoSsd.load().then(function (loadedModel) {
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // true for mobile device
     console.log("mobile device");
-    alert('Not optimized for mobile viewing!')
+    alert("This App is optimized for Desktop view.\nPlease switch to Desktop for better experience.")
 } else {
     // false for not mobile device
     console.log("not mobile device");
